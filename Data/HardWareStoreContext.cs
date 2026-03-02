@@ -50,8 +50,8 @@ public class HardwareStoreContext : DbContext
 
         List<Tool> tools = new()
         {
-         new Tool() { ID=Guid.NewGuid().ToString(), Name = "Hammer", Price = 99.9, BrandID = 1, CategoryID = 1},
-            new Tool() { ID=Guid.NewGuid().ToString(), Name = "Drill", Price = 99.9, BrandID = 1, CategoryID = 2},
+         new Tool() { ID = 1, Name = "Hammer", Price = 99.9, BrandID = 1, CategoryID = 1},
+            new Tool() { ID = 2, Name = "Drill", Price = 99.9, BrandID = 1, CategoryID = 2},
         };
 
         // Entity Configuration

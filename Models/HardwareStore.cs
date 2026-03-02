@@ -2,7 +2,7 @@ namespace EFCoreDemo.Models;
 
 public class Tool
 {
-    public string ID { get; set; } = string.Empty;// This is the primary key attribute
+    public int ID { get; set; }// This is the primary key attribute
     public string Name { get; set; } = string.Empty;
     public double Price { get; set; }
 
