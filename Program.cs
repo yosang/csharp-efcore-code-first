@@ -7,9 +7,12 @@ public class Program
 {
     public static void Main()
     {
-        BrandRepository brandRepo = new BrandRepository();
-        CategoryRepository categoryRepo = new CategoryRepository();
-        ToolRepository toolRepo = new ToolRepository();
+        using var db = new HardwareStoreContext();
+        db.Database.EnsureCreated();
+
+        BrandRepository brandRepo = new BrandRepository(db);
+        CategoryRepository categoryRepo = new CategoryRepository(db);
+        ToolRepository toolRepo = new ToolRepository(db);
 
         brandRepo.seedDefaultBrands();
         categoryRepo.seedDefaultCategories();

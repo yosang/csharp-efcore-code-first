@@ -3,10 +3,14 @@ using EFCoreDemo.Models;
 using EFCoreDemo.Data;
 public class CategoryRepository : ICategory
 {
+    private readonly HardwareStoreContext _db;
+
+    public CategoryRepository(HardwareStoreContext db)
+    {
+        _db = db;
+    }
     public void seedDefaultCategories()
     {
-        using var db = new HardwareStoreContext();
-        db.Database.EnsureCreated();
 
         string[] defaultCategories = new[] { "Hand Tool", "Power Tools" };
 
@@ -14,36 +18,31 @@ public class CategoryRepository : ICategory
 
         foreach (string name in defaultCategories)
         {
-            if (!db.Categories.Any(e => e.Name == name))
+            if (!_db.Categories.Any(e => e.Name == name))
             {
-                db.Categories.Add(new Category { Name = name });
+                _db.Categories.Add(new Category { Name = name });
                 altered = true;
             }
         }
 
-        if (altered) db.SaveChanges();
+        if (altered) _db.SaveChanges();
     }
     public void addCategory(Category newCategory)
     {
-        using var db = new HardwareStoreContext();
-        db.Database.EnsureCreated();
-        db.Categories.Add(newCategory);
-        db.SaveChanges();
+        _db.Categories.Add(newCategory);
+        _db.SaveChanges();
     }
 
     public void addCategories(List<Category> newCategories)
     {
-        using var db = new HardwareStoreContext();
-        db.Database.EnsureCreated();
-        db.Categories.AddRange(newCategories);
-        db.SaveChanges();
+        _db.Categories.AddRange(newCategories);
+        _db.SaveChanges();
     }
 
     public Category getCategoryById(int id)
     {
-        using var db = new HardwareStoreContext();
 
-        Category? category = db.Categories.Find(id);
+        Category? category = _db.Categories.Find(id);
 
         return category;
     }

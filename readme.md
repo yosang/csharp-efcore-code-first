@@ -11,6 +11,26 @@ This project is built using the NuGet package: `MySql.EntityFrameworkCore`.
 - Grant `testuser` the necessary permissions on `testdb`.
 - If you prefer to use an existing db and user, feel free to change the connection strig on line 27 in [HardWareStoreContext](Data/HardWareStoreContext.cs)
 
+# Project structure
+- Models (HardwareStore)
+    - Tool
+    - Brand
+    - Category
+- Data (HardWareStoreContext)
+    - HardWareStoreContext : DbContext
+- Repository
+    - ToolRepository
+    - BrandRepository
+    - CategoryRepository
+- Program
+    - Uses the repositories
+
+# The Repository Pattern
+- Separation of concerns
+- Abstraction over EF Core
+- Interface-based design
+- Cleaner main program
+
 # Usage
 
 1. Clone the repo

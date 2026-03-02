@@ -5,19 +5,21 @@ namespace EFCoreDemo.Repository;
 
 public class ToolRepository : ITool
 {
+    private readonly HardwareStoreContext _db;
+
+    public ToolRepository(HardwareStoreContext db)
+    {
+        _db = db;
+    }
     public void addTool(Tool newTool)
     {
-        using var db = new HardwareStoreContext();
-        db.Database.EnsureCreated();
-        db.Tools.Add(newTool);
-        db.SaveChanges();
+        _db.Tools.Add(newTool);
+        _db.SaveChanges();
     }
 
     public void addTools(List<Tool> newTools)
     {
-        using var db = new HardwareStoreContext();
-        db.Database.EnsureCreated();
-        db.Tools.AddRange(newTools);
-        db.SaveChanges();
+        _db.Tools.AddRange(newTools);
+        _db.SaveChanges();
     }
 }
