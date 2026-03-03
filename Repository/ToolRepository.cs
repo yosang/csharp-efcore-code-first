@@ -202,5 +202,15 @@ public class ToolRepository : IToolRepository
                 .OrderByDescending(t => t.Price)
                 .FirstOrDefault();
     }
+
+    // Pagination
+    public List<Tool> GetTopThreeMostExpensive()
+    {
+        if (_db == null) return new List<Tool>();
+        return _db.Tools
+                .OrderByDescending(t => t.Price)
+                .Take(3) // Limits the result to 3 items
+                .ToList();
+    }
     #endregion
 }

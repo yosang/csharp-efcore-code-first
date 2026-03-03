@@ -45,5 +45,8 @@ public interface IToolRepository
     int CountToolsInCategory(int categoryId);
     Tool? GetMostExpensiveTool();
 
+    // Pagination
+    List<Tool> GetTopThreeMostExpensive();
+
     #endregion
 }

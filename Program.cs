@@ -105,8 +105,11 @@ public class Program
         // var totalToolsInCategory = toolRepo.CountToolsInCategory(1);
         // Console.WriteLine(totalToolsInCategory);
 
-        var mostExpensiveTool = toolRepo.GetMostExpensiveTool();
-        Console.WriteLine($"Name: {mostExpensiveTool?.Name} - Price {mostExpensiveTool?.Price}");
+        // var mostExpensiveTool = toolRepo.GetMostExpensiveTool();
+        // Console.WriteLine($"Name: {mostExpensiveTool?.Name} - Price {mostExpensiveTool?.Price}");
+
+        var topThree = toolRepo.GetTopThreeMostExpensive();
+        foreach (var t in topThree) Console.WriteLine($"Name {t.Name} - Price {t.Price}");
 
         #endregion
     }
