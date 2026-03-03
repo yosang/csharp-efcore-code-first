@@ -12,9 +12,6 @@ This project is built using the NuGet package: `MySql.EntityFrameworkCore`.
     CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'p@ssword';
     GRANT ALL PRIVILEGES ON testdb.* TO 'testuser'@'localhost';
     ```
-**Migration**
-- 
-- If you prefer to use an existing db and user, feel free to change the connection strig on line 27 in [HardWareStoreContext](Data/HardWareStoreContext.cs)
 
 # Concepts covered
 
@@ -114,7 +111,7 @@ var noBueno = _db.Tools.ToList()
 
 This is not good for performance if say we got 10,000 tools being filtered in memory...
 
-### Debugging
+#### Debugging
 In EF Core 5+, we can use `query.ToQueryString()` on any `IQueryable<T>` to see the query string created by EF.
 
 However, this shows the query string UPTO a `IQueryable`, but not for materialized (server) execution, for this we can debug by adding the following to `OnConfiguring`.
