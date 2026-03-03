@@ -2,10 +2,23 @@
 
 This practice-project demonstrates how we can configure `Entity Framework Core` with `.NET 9` to connect to a `MySQL` database and perform some basic `CRUD` operations.
 
-## Approach
+## Code-First Approach
 In this project we are using the `Code-First` approach:
-- Entitites are created in code first.
-- Database is generated through migrations.
+- `DbContext`: A class that manages interaction between entity classses and the database. It represents a session with the database and is used to query and save data.
+- `DbSet`: Properties within the `DbContext` that represents collections of entities, mapping directly to tables in the database.
+- `Migrations`: A feature that tracks changes made to the model classes over time and generates SQL scripts to update the database schema, making sure the code and database remain in sync.
+
+A typical workflow:
+1. We define the entity classes.
+2. We create a class that inherits from `DbContext` and exposes `DbSet` properties for each entity.
+3. We configure connection by overriding `OnConfiguring`. (here we can set the connection string)
+4. We configure the models by overriding `OnModelCreating`. (here we can set seed data with .HasData)
+5. We add migrations using `dotnet-ef`.
+6. We update the database using `dotnet-ef`.
+
+Benefits:
+- Version control friendly: The database schema is defined in code, so changes can easily be tracked.
+- Code-Centric: We can control the database design from code and modify models and relationships using code without needing SQL.
 
 ## Packages
 - `MySql.EntityFrameworkCore`
