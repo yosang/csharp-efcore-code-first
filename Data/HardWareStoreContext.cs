@@ -26,7 +26,7 @@ public class HardwareStoreContext : DbContext
         // Provides connection details for a MySQL server
         optionsBuilder.UseMySQL("server=localhost;database=testdb;user=testuser;password=p@ssword");
 
-        optionsBuilder.LogTo(Console.WriteLine); // Enables logging
+        // optionsBuilder.LogTo(Console.WriteLine); // Enables logging
     }
 
     // Allows us to furhter configure the models with specific constraints such as:

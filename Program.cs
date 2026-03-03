@@ -62,7 +62,7 @@ public class Program
         toolRepo.DeleteToolById(1);
 
         // Multiple deletes
-        Tool? drill = toolRepo.GetToolById(2);
+        Tool? drill = toolRepo.GetToolById(4);
         Tool? circleSaw = toolRepo.GetToolById(3);
 
         if (drill != null && circleSaw != null)
