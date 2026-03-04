@@ -21,6 +21,8 @@
 
 This practice-project demonstrates how we can configure `Entity Framework Core` with `.NET 9` to connect to a `MySQL` database and perform some basic `CRUD` operations.
 
+Here is a nice little resource that keeps configuration to the very basics: https://mysqlconnector.net/tutorials/efcore/
+
 ## Code-First Approach
 In this project we are using the `Code-First` approach:
 - `DbContext`: A class that manages interaction between entity classses and the database. It represents a session with the database and is used to query and save data.
