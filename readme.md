@@ -1,3 +1,22 @@
+- [Project](#project)
+  - [Code-First Approach](#code-first-approach)
+  - [Packages](#packages)
+  - [Database Prerequisites](#database-prerequisites)
+- [Concepts covered](#concepts-covered)
+  - [Overview](#overview)
+  - [Language Integrated Query (LINQ)](#language-integrated-query-linq)
+    - [Usage](#usage)
+    - [Providers](#providers)
+    - [Nice to know](#nice-to-know)
+      - [Why is this important?](#why-is-this-important)
+      - [Debugging](#debugging)
+  - [The Repository Pattern](#the-repository-pattern)
+    - [Pros](#pros)
+    - [Cons](#cons)
+- [Usage](#usage-1)
+- [Technologies](#technologies)
+- [Author](#author)
+
 # Project
 
 This practice-project demonstrates how we can configure `Entity Framework Core` with `.NET 9` to connect to a `MySQL` database and perform some basic `CRUD` operations.
